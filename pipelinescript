@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/ReyazShaik/tf-jenkins-project.git'
+                git branch: 'main', url: git 'https://github.com/ReyazShaik/tf-jenkins-project.git'
             }
         }
         stage('init') {
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('action') {
             steps {
-                sh 'terraform $action --auto-approve'
+                sh 'terraform ${action} --auto-approve'
             }
         }
     }
